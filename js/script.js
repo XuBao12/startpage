@@ -70,4 +70,27 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // 启动打字机
   setTimeout(typeWriter, 1000);
+
+  // 格言随机显示
+  const quoteElement = document.getElementById("quote");
+  const quotes = [
+    "Stay hungry, Stay foolish.",
+    "Talk is cheap. Show me the code.",
+    "Simplicity is the soul of efficiency.",
+    "Code is like humor. When you have to explain it, it’s bad.",
+    "Make it work, make it right, make it fast.",
+    "The only way to do great work is to love what you do.",
+    "Innovation distinguishes between a leader and a follower.",
+    "Knowledge is power.",
+    "First, solve the problem. Then, write the code.",
+    "It’s not a bug. It’s an undocumented feature.",
+    "Software is eating the world.",
+  ];
+
+  function updateQuote() {
+    const randomIndex = Math.floor(Math.random() * quotes.length);
+    quoteElement.textContent = quotes[randomIndex];
+  }
+
+  updateQuote();
 });
