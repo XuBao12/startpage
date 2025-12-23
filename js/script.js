@@ -12,30 +12,42 @@ document.addEventListener("DOMContentLoaded", () => {
       "Late night inspiration, ${name}?",
       "Go to sleep, ${name}.",
       "Coding into the void, ${name}.",
+      "Compiling dreams, ${name}?",
+      "Silence is golden for coding, ${name}.",
+      "Just one more line, right ${name}?",
     ],
     morning: [
       // 05:00 - 11:00
-      "Good morning, ${name}.",
       "Ready to ship code, ${name}?",
       "Coffee first, bugs later, ${name}.",
       "Seize the day, ${name}.",
       "Let's make something cool, ${name}.",
+      "New day, new commits, ${name}.",
+      "May your build pass, ${name}.",
+      "Time to conquer the backlog, ${name}.",
+      "System online. Welcome back, ${name}.",
     ],
     afternoon: [
       // 11:00 - 17:00
-      "Good afternoon, ${name}.",
       "Stay focused, ${name}.",
       "Keep pushing, ${name}.",
       "Don't forget to hydrate, ${name}.",
       "In the flow state, ${name}?",
+      "Squashing bugs or creating them, ${name}?",
+      "Don't break production, ${name}.",
+      "Time for a context switch, ${name}?",
+      "Halfway through, keep going, ${name}.",
     ],
     evening: [
       // 17:00 - 22:00
-      "Good evening, ${name}.",
       "Time to relax, ${name}?",
       "Great work today, ${name}.",
       "Any side projects tonight, ${name}?",
       "Reviewing the day's code, ${name}?",
+      "Commit and chill, ${name}?",
+      "Learning something new tonight, ${name}?",
+      "Switching to dark mode, ${name}.",
+      "Refactoring the mind, ${name}.",
     ],
     night: [
       // 22:00 - 24:00
@@ -43,6 +55,9 @@ document.addEventListener("DOMContentLoaded", () => {
       "Rest is important, ${name}.",
       "See you tomorrow, ${name}.",
       "Offline mode soon, ${name}?",
+      "Save your progress, ${name}.",
+      "Recharge your battery, ${name}.",
+      "Dream in code, ${name}.",
     ],
   };
 
