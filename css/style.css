@@ -20,43 +20,65 @@ body {
 
 /* 极光背景动画 - 层1 (冷色调) */
 body::before {
-    content: "";
-    position: absolute;
-    top: -100%;
-    left: -100%;
-    width: 300%;
-    height: 300%;
-    background: radial-gradient(circle, rgba(255,255,255,0.95) 0%, rgba(210,230,255,0.7) 35%, rgba(255,255,255,0) 65%);
-    animation: aurora 25s infinite linear;
-    z-index: -2;
-    opacity: 0.8;
+  content: "";
+  position: absolute;
+  top: -100%;
+  left: -100%;
+  width: 300%;
+  height: 300%;
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.95) 0%,
+    rgba(210, 230, 255, 0.7) 35%,
+    rgba(255, 255, 255, 0) 65%
+  );
+  animation: aurora 25s infinite linear;
+  z-index: -2;
+  opacity: 0.8;
 }
 
 /* 极光背景动画 - 层2 (暖色调，反向旋转，增加层次) */
 body::after {
-    content: "";
-    position: absolute;
-    top: -100%;
-    left: -100%;
-    width: 300%;
-    height: 300%;
-    background: radial-gradient(circle, rgba(255,235,235,0.8) 0%, rgba(235,225,255,0.6) 40%, transparent 70%);
-    animation: aurora-reverse 35s infinite linear;
-    z-index: -2;
-    opacity: 0.7;
-    mix-blend-mode: overlay;
+  content: "";
+  position: absolute;
+  top: -100%;
+  left: -100%;
+  width: 300%;
+  height: 300%;
+  background: radial-gradient(
+    circle,
+    rgba(255, 235, 235, 0.8) 0%,
+    rgba(235, 225, 255, 0.6) 40%,
+    transparent 70%
+  );
+  animation: aurora-reverse 35s infinite linear;
+  z-index: -2;
+  opacity: 0.7;
+  mix-blend-mode: overlay;
 }
 
 @keyframes aurora {
-    0% { transform: rotate(0deg) scale(1); }
-    50% { transform: rotate(180deg) scale(1.15) translate(2%, 2%); }
-    100% { transform: rotate(360deg) scale(1); }
+  0% {
+    transform: rotate(0deg) scale(1);
+  }
+  50% {
+    transform: rotate(180deg) scale(1.15) translate(2%, 2%);
+  }
+  100% {
+    transform: rotate(360deg) scale(1);
+  }
 }
 
 @keyframes aurora-reverse {
-    0% { transform: rotate(360deg) scale(1.1); }
-    50% { transform: rotate(180deg) scale(1) translate(-2%, -2%); }
-    100% { transform: rotate(0deg) scale(1.1); }
+  0% {
+    transform: rotate(360deg) scale(1.1);
+  }
+  50% {
+    transform: rotate(180deg) scale(1) translate(-2%, -2%);
+  }
+  100% {
+    transform: rotate(0deg) scale(1.1);
+  }
 }
 
 @keyframes aurora {
