@@ -98,7 +98,7 @@ body::after {
   max-width: 600px;
   padding: 20px;
   position: relative; /* 为 nav 提供定位基准 */
-  transform: translateY(-100px); /* 上移，让搜索框处于屏幕视觉中心 */
+  transform: translateY(-140px); /* 上移，让搜索框处于屏幕视觉中心 */
 }
 
 /* 时间与问候 */
@@ -110,6 +110,9 @@ body::after {
   margin-bottom: 0px;
   color: #1d1d1f;
   text-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  user-select: none;
+  -webkit-user-select: none;
+  cursor: default;
 }
 
 #greeting {
@@ -117,6 +120,9 @@ body::after {
   font-weight: 300;
   color: #555;
   margin-bottom: 50px;
+  user-select: none;
+  -webkit-user-select: none;
+  cursor: default;
 }
 
 /* 搜索框 */

@@ -1,1 +1,4 @@
-# startpage
+# minimal startpage
+
+![](./image.png)
+
