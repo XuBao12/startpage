@@ -1,5 +1,12 @@
 body {
-  background-color: #f5f5f7;
+  background-color: #e0e5ec;
+  background-image: radial-gradient(
+      at 0% 0%,
+      hsla(253, 16%, 7%, 0.1) 0,
+      transparent 50%
+    ),
+    radial-gradient(at 50% 0%, hsla(225, 39%, 30%, 0.1) 0, transparent 50%),
+    radial-gradient(at 100% 0%, hsla(339, 49%, 30%, 0.1) 0, transparent 50%);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -8,6 +15,47 @@ body {
   margin: 0;
   font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
   color: #333;
+  overflow: hidden;
+}
+
+/* 极光背景动画 */
+body::before {
+  content: "";
+  position: absolute;
+  top: -100%;
+  left: -100%;
+  width: 300%;
+  height: 300%;
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.8) 0%,
+    rgba(230, 240, 255, 0.4) 30%,
+    rgba(255, 255, 255, 0) 60%
+  );
+  animation: aurora 25s infinite linear;
+  z-index: -1;
+  opacity: 0.6;
+}
+
+@keyframes aurora {
+  0% {
+    transform: rotate(0deg) scale(1);
+  }
+  50% {
+    transform: rotate(180deg) scale(1.15) translate(2%, 2%);
+  }
+  100% {
+    transform: rotate(360deg) scale(1);
+  }
+}
+
+@keyframes aurora {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 .container {
@@ -16,63 +64,70 @@ body {
   align-items: center;
   width: 100%;
   max-width: 600px;
-  transform: translateY(-10vh);
+  transform: translateY(-5vh);
+  padding: 20px;
 }
 
 /* 时间与问候 */
 #time {
-  font-size: 80px;
-  font-weight: 600;
-  letter-spacing: -2px;
-  margin-bottom: 10px;
+  font-size: 96px;
+  font-weight: 700;
+  letter-spacing: -4px;
+  margin-bottom: 0px;
   color: #1d1d1f;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
 }
 
 #greeting {
   font-size: 24px;
   font-weight: 300;
-  color: #86868b;
-  margin-bottom: 40px;
+  color: #555;
+  margin-bottom: 50px;
 }
 
 /* 搜索框 */
 .search-box {
   width: 100%;
-  max-width: 400px;
+  max-width: 420px;
   position: relative;
   margin-bottom: 40px;
 }
 
 input {
   width: 100%;
-  padding: 15px 20px;
-  border: none;
-  border-radius: 12px;
-  background: #fff;
+  padding: 18px 24px;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   font-size: 18px;
   text-align: left;
   outline: none;
   color: #1d1d1f;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
 input:focus {
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
   transform: translateY(-2px);
+  border-color: rgba(255, 255, 255, 0.8);
 }
 
 input::placeholder {
-  color: #a1a1a6;
+  color: #888;
   font-weight: 300;
+  opacity: 0.8;
 }
 
 /* 导航链接 */
 .nav {
   display: flex;
-  gap: 40px;
-  opacity: 0;
-  transform: translateY(10px);
+  gap: 30px;
+  opacity: 0.8; /* 默认稍微可见，不再完全隐藏 */
+  transform: translateY(0);
   transition: all 0.5s ease;
 }
 
@@ -81,26 +136,28 @@ body:hover .nav,
 input:focus ~ .nav,
 .nav:hover {
   opacity: 1;
-  transform: translateY(0);
 }
 
 .nav a {
-  color: #86868b;
-  transition: all 0.3s ease;
+  color: #666;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 10px;
-  border-radius: 50%;
+  padding: 12px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0);
 }
 
 .nav a:hover {
-  color: #1d1d1f;
-  background-color: rgba(0, 0, 0, 0.05);
-  transform: scale(1.1);
+  color: #000;
+  background-color: rgba(255, 255, 255, 0.6);
+  transform: scale(1.15);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
 
 .nav svg {
-  width: 24px;
-  height: 24px;
+  width: 26px;
+  height: 26px;
+  stroke-width: 1.5;
 }
