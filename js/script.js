@@ -68,6 +68,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const hours = String(now.getHours()).padStart(2, "0");
     const minutes = String(now.getMinutes()).padStart(2, "0");
     timeElement.textContent = `${hours}:${minutes}`;
+    document.title = `${hours}:${minutes} | Start Page`;
 
     // 只有当小时发生变化时，或者页面刚加载时（currentHour为-1），才更新问候语
     // 这样可以避免每秒刷新导致问候语狂闪，同时保证随机性
