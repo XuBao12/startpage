@@ -3,20 +3,74 @@ document.addEventListener("DOMContentLoaded", () => {
   const greetingElement = document.getElementById("greeting");
   const name = "Xiaxu"; // 你可以在这里修改你的名字
 
+  // 个性化问候语库
+  const greetings = {
+    lateNight: [
+      // 00:00 - 05:00
+      "Still up, ${name}?",
+      "The world sleeps, you build, ${name}.",
+      "Late night inspiration, ${name}?",
+      "Go to sleep, ${name}.",
+      "Coding into the void, ${name}.",
+    ],
+    morning: [
+      // 05:00 - 11:00
+      "Good morning, ${name}.",
+      "Ready to ship code, ${name}?",
+      "Coffee first, bugs later, ${name}.",
+      "Seize the day, ${name}.",
+      "Let's make something cool, ${name}.",
+    ],
+    afternoon: [
+      // 11:00 - 17:00
+      "Good afternoon, ${name}.",
+      "Stay focused, ${name}.",
+      "Keep pushing, ${name}.",
+      "Don't forget to hydrate, ${name}.",
+      "In the flow state, ${name}?",
+    ],
+    evening: [
+      // 17:00 - 22:00
+      "Good evening, ${name}.",
+      "Time to relax, ${name}?",
+      "Great work today, ${name}.",
+      "Any side projects tonight, ${name}?",
+      "Reviewing the day's code, ${name}?",
+    ],
+    night: [
+      // 22:00 - 24:00
+      "Time to wind down, ${name}.",
+      "Rest is important, ${name}.",
+      "See you tomorrow, ${name}.",
+      "Offline mode soon, ${name}?",
+    ],
+  };
+
+  let currentHour = -1; // 用于追踪小时变化
+
   function updateTime() {
     const now = new Date();
     const hours = String(now.getHours()).padStart(2, "0");
     const minutes = String(now.getMinutes()).padStart(2, "0");
     timeElement.textContent = `${hours}:${minutes}`;
 
-    // 更新问候语
+    // 只有当小时发生变化时，或者页面刚加载时（currentHour为-1），才更新问候语
+    // 这样可以避免每秒刷新导致问候语狂闪，同时保证随机性
     const hour = now.getHours();
-    let greeting = "";
-    if (hour < 12) greeting = "Good Morning";
-    else if (hour < 18) greeting = "Good Afternoon";
-    else greeting = "Good Evening";
+    if (hour !== currentHour) {
+      currentHour = hour;
+      let timeOfDay = "morning";
+      if (hour >= 0 && hour < 5) timeOfDay = "lateNight";
+      else if (hour >= 5 && hour < 11) timeOfDay = "morning";
+      else if (hour >= 11 && hour < 17) timeOfDay = "afternoon";
+      else if (hour >= 17 && hour < 22) timeOfDay = "evening";
+      else timeOfDay = "night";
 
-    greetingElement.textContent = `${greeting}, ${name}.`;
+      const options = greetings[timeOfDay];
+      const randomGreeting =
+        options[Math.floor(Math.random() * options.length)];
+      greetingElement.textContent = randomGreeting.replace("${name}", name);
+    }
   }
 
   updateTime();
